@@ -53,4 +53,24 @@
         android:layout_below="@+id/rb_question_3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New RadioButton"
+        android:id="@+id/rb_question_5"
+        android:layout_below="@+id/rb_question_4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/rb_question_4"
+        android:layout_alignEnd="@+id/rb_question_4" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Responder"
+        android:id="@+id/btn_responder"
+        android:layout_below="@+id/rb_question_5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp" />
 </RelativeLayout>
