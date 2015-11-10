@@ -32,9 +32,12 @@ public class QuizFragment extends Fragment {
     String quiz;
     List<Question> questions;
     JSONArray answers;
+    boolean result = false;
+    boolean success = false;
 
     Question question;
     int questionId = 0;
+    int sequence = 0;
 
     private RadioButton question1;
     private RadioButton question2;
@@ -42,7 +45,13 @@ public class QuizFragment extends Fragment {
     private RadioButton question4;
     private RadioButton question5;
 
+    AssetManager assetMng;
+
     public QuizFragment() {
+    }
+
+    public void setAsset(AssetManager assetMng) {
+        this.assetMng = assetMng;
     }
 
     public void setQuiz(String quiz) {
@@ -57,7 +66,7 @@ public class QuizFragment extends Fragment {
     }
 
     private void parseQuiz(JsonReader jsonr) throws IOException, JSONException {
-        BufferedReader r = new BufferedReader(new InputStreamReader(getActivity().getAssets().open(quiz)));
+        BufferedReader r = new BufferedReader(new InputStreamReader(assetMng.open(quiz)));
         StringBuilder total = new StringBuilder();
         String line;
         while ((line = r.readLine()) != null) {
@@ -93,47 +102,92 @@ public class QuizFragment extends Fragment {
     }
 
     public void next() {
+        result = false;
         questionId++;
+        success = false;
         refreshView();
     }
 
     private void verify() {
-        next();
+
+        result = true;
+
+        int [] pat = question.patterns[sequence];
+
+        if(question1.isChecked()) {
+            success = pat[0] == question.correct;
+        } else if(question2.isChecked()) {
+            success = pat[1] == question.correct;
+        } else if(question3.isChecked()) {
+            success = pat[2] == question.correct;
+        } else if(question4.isChecked()) {
+            success = pat[3] == question.correct;
+        }
+
+        refreshView();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_quiz, container, false);
 
-        question1 = (RadioButton) view.findViewById(R.id.rb_question_1);
-        question2 = (RadioButton) view.findViewById(R.id.rb_question_2);
-        question3 = (RadioButton) view.findViewById(R.id.rb_question_3);
-        question4 = (RadioButton) view.findViewById(R.id.rb_question_4);
-        question5 = (RadioButton) view.findViewById(R.id.rb_question_5);
+        View view = null;
+
+        if(!result) {
+            view = inflater.inflate(R.layout.fragment_quiz, container, false);
+
+            question1 = (RadioButton) view.findViewById(R.id.rb_question_1);
+            question2 = (RadioButton) view.findViewById(R.id.rb_question_2);
+            question3 = (RadioButton) view.findViewById(R.id.rb_question_3);
+            question4 = (RadioButton) view.findViewById(R.id.rb_question_4);
+            question5 = (RadioButton) view.findViewById(R.id.rb_question_5);
 
 
-        Button btnResp = (Button) view.findViewById(R.id.btn_responder);
+            question1.setSelected(true);
 
-        btnResp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                verify();
+            Button btnResp = (Button) view.findViewById(R.id.btn_responder);
+
+            btnResp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    verify();
+                }
+            });
+
+            try {
+                setQuestion(questions.get(questionId));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        });
+        } else {
+//            result = false;
+            view = inflater.inflate(R.layout.fragment_result, container, false);
 
-        try {
-            setQuestion(questions.get(questionId));
-        } catch (JSONException e) {
-            e.printStackTrace();
+            TextView txtResult = (TextView) view.findViewById(R.id.txt_result);
+            TextView txtExp = (TextView) view.findViewById(R.id.txt_explanation);
+
+            if(success) {
+                txtResult.setText("Resposta certa! Parabéns!");
+            } else {
+                txtResult.setText("Resposta Errada!");
+            }
+
+            txtExp.setText(question.explanation);
+
+            Button btnOK = (Button) view.findViewById(R.id.btn_ok);
+            btnOK.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    next();
+                }
+            });
         }
-
         return view;
     }
 
     private void setQuestion(Question question) throws JSONException {
         Random rd = new Random();
-        int seq = rd.nextInt(4);
+        int seq = rd.nextInt(3);
 
         question1.setText(answers.getJSONObject(question.patterns[seq][0]).getString("text"));
         question2.setText(answers.getJSONObject(question.patterns[seq][1]).getString("text"));
@@ -141,6 +195,7 @@ public class QuizFragment extends Fragment {
         question4.setText(answers.getJSONObject(question.patterns[seq][3]).getString("text"));
         question5.setText(answers.getJSONObject(question.patterns[seq][4]).getString("text"));
 
+        sequence = seq;
     }
 
     private void refreshView() {
