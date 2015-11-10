@@ -46,6 +46,7 @@ public class QuizFragment extends Fragment {
     private RadioButton question5;
 
     AssetManager assetMng;
+    private TextView textQuestion;
 
     public QuizFragment() {
     }
@@ -136,6 +137,7 @@ public class QuizFragment extends Fragment {
         if(!result) {
             view = inflater.inflate(R.layout.fragment_quiz, container, false);
 
+            textQuestion = (TextView) view.findViewById(R.id.txt_question);
             question1 = (RadioButton) view.findViewById(R.id.rb_question_1);
             question2 = (RadioButton) view.findViewById(R.id.rb_question_2);
             question3 = (RadioButton) view.findViewById(R.id.rb_question_3);
@@ -163,7 +165,7 @@ public class QuizFragment extends Fragment {
 //            result = false;
             view = inflater.inflate(R.layout.fragment_result, container, false);
 
-            TextView txtResult = (TextView) view.findViewById(R.id.txt_result);
+            TextView txtResult = (TextView) view.findViewById(R.id.txt_final_result);
             TextView txtExp = (TextView) view.findViewById(R.id.txt_explanation);
 
             if(success) {
@@ -174,7 +176,7 @@ public class QuizFragment extends Fragment {
 
             txtExp.setText(question.explanation);
 
-            Button btnOK = (Button) view.findViewById(R.id.btn_ok);
+            Button btnOK = (Button) view.findViewById(R.id.btn_ok_final);
             btnOK.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -188,6 +190,10 @@ public class QuizFragment extends Fragment {
     private void setQuestion(Question question) throws JSONException {
         Random rd = new Random();
         int seq = rd.nextInt(3);
+
+        this.question = question;
+
+        textQuestion.setText(question.title);
 
         question1.setText(answers.getJSONObject(question.patterns[seq][0]).getString("text"));
         question2.setText(answers.getJSONObject(question.patterns[seq][1]).getString("text"));
