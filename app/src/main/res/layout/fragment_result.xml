@@ -11,12 +11,13 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/txt_final_result"
+        android:id="@+id/txt_result"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,17 +26,17 @@
         android:text="Large Text"
         android:id="@+id/txt_explanation"
         android:lines="5"
-        android:layout_above="@+id/btn_ok_final"
+        android:layout_above="@+id/btn_ok"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/txt_final_result"
-        android:layout_alignEnd="@+id/txt_final_result" />
+        android:layout_alignRight="@+id/txt_result"
+        android:layout_alignEnd="@+id/txt_result" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ok"
-        android:id="@+id/btn_ok_final"
+        android:id="@+id/btn_ok"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

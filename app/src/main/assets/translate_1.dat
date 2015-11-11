@@ -3,11 +3,11 @@
     {
       title: "Traduza: πληρόω",
       explanation: "Significado de πληρόω: (eu) encho (a ponto de transbordar), completo, cumpro.",
-      correct: 0,
+      correct: 16,
       patterns: [
-        [0,2,3,4,5],
-        [3,4,0,2,5],
-        [0,2,3,4,5]
+        [0,16,3,4,5],
+        [3,4,0,16,5],
+        [0,2,16,4,5]
       ]
     },
     {

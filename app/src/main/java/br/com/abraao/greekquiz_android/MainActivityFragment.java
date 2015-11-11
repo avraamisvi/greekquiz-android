@@ -23,28 +23,43 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        /*RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams()
-        Button btn = new Button();*/
-
         view.findViewById(R.id.btn_pres_indicativo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fragmentManager = MainActivityFragment.this.getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                openQuiz("pres_indicativo.dat");
+            }
+        });
 
-                fragmentTransaction.detach(MainActivityFragment.this);
+        view.findViewById(R.id.btn_pres_subjuntivo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openQuiz("pres_indicativo.dat");
+            }
+        });
 
-                QuizFragment frag = new QuizFragment();
-                frag.setAsset(getActivity().getAssets());
-                frag.setQuiz("pres_indicativo.dat");
-
-                //fragmentTransaction.attach(frag);
-                fragmentTransaction.replace(R.id.main_frame_layout, frag);
-                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                fragmentTransaction.commit();
+        view.findViewById(R.id.btn_vocabulario).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openQuiz("translate_1.dat");
             }
         });
 
         return view;
+    }
+
+    private void openQuiz(String quiz) {
+        FragmentManager fragmentManager = MainActivityFragment.this.getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.detach(MainActivityFragment.this);
+
+        QuizFragment frag = new QuizFragment();
+        frag.setAsset(getActivity().getAssets());
+        frag.setQuiz(quiz);
+
+        //fragmentTransaction.attach(frag);
+        fragmentTransaction.replace(R.id.main_frame_layout, frag);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.commit();
     }
 }

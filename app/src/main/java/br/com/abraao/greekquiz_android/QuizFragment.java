@@ -1,6 +1,7 @@
 package br.com.abraao.greekquiz_android;
 
 import android.content.res.AssetManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -33,11 +35,14 @@ public class QuizFragment extends Fragment {
     List<Question> questions;
     JSONArray answers;
     boolean result = false;
+    boolean resultFinal = false;
     boolean success = false;
 
     Question question;
     int questionId = 0;
     int sequence = 0;
+
+    int rights = 0;
 
     private RadioButton question1;
     private RadioButton question2;
@@ -103,9 +108,16 @@ public class QuizFragment extends Fragment {
     }
 
     public void next() {
-        result = false;
         questionId++;
-        success = false;
+        if(questionId >= questions.size()) {
+            resultFinal = true;
+            result = false;
+            questionId = 0;
+            success = false;
+        } else {
+            result = false;
+            success = false;
+        }
         refreshView();
     }
 
@@ -125,6 +137,10 @@ public class QuizFragment extends Fragment {
             success = pat[3] == question.correct;
         }
 
+        if(success) {
+            rights++;
+        }
+
         refreshView();
     }
 
@@ -134,7 +150,35 @@ public class QuizFragment extends Fragment {
 
         View view = null;
 
-        if(!result) {
+        if(resultFinal) {
+            view = inflater.inflate(R.layout.fragment_result_total, container, false);
+
+            TextView txtResult = (TextView) view.findViewById(R.id.txt_final_result);
+            TextView txtRgt = (TextView) view.findViewById(R.id.txt_total_right);
+            TextView txtWrg = (TextView) view.findViewById(R.id.txt_total_wrong);
+
+            float perc = ((float)rights/(float)questions.size())*100;
+
+            if(perc>=70) {
+                txtResult.setText("Parabéns! Você acertou:" + perc + "%");
+            } else if(perc>=50) {
+                txtResult.setText("Parabéns! Você acertou:" + perc + "%");
+            } else {
+                txtResult.setText("Que pena! Você acertou:" + perc + "%");
+            }
+
+            txtRgt.setText("Total de acertos:" + rights);
+            txtWrg.setText("Total de erros:" + (questions.size()-rights));
+
+            Button btnOK = (Button) view.findViewById(R.id.btn_ok_final);
+            btnOK.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showMenu();
+                }
+            });
+
+        } else if(!result) {
             view = inflater.inflate(R.layout.fragment_quiz, container, false);
 
             textQuestion = (TextView) view.findViewById(R.id.txt_question);
@@ -145,7 +189,7 @@ public class QuizFragment extends Fragment {
             question5 = (RadioButton) view.findViewById(R.id.rb_question_5);
 
 
-            question1.setSelected(true);
+            //question1.setSelected(true);
 
             Button btnResp = (Button) view.findViewById(R.id.btn_responder);
 
@@ -165,18 +209,20 @@ public class QuizFragment extends Fragment {
 //            result = false;
             view = inflater.inflate(R.layout.fragment_result, container, false);
 
-            TextView txtResult = (TextView) view.findViewById(R.id.txt_final_result);
+            TextView txtResult = (TextView) view.findViewById(R.id.txt_result);
             TextView txtExp = (TextView) view.findViewById(R.id.txt_explanation);
 
             if(success) {
                 txtResult.setText("Resposta certa! Parabéns!");
+                txtResult.setBackgroundColor(0xFF88CC88);
             } else {
                 txtResult.setText("Resposta Errada!");
+                txtResult.setBackgroundColor(0xFFFFAAAA);
             }
 
             txtExp.setText(question.explanation);
 
-            Button btnOK = (Button) view.findViewById(R.id.btn_ok_final);
+            Button btnOK = (Button) view.findViewById(R.id.btn_ok);
             btnOK.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -209,6 +255,19 @@ public class QuizFragment extends Fragment {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.detach(this);
         fragmentTransaction.attach(this);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.commit();
+    }
+
+    private void showMenu() {
+        FragmentManager fragmentManager = this.getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.detach(QuizFragment.this);
+
+        MainActivityFragment frag = new MainActivityFragment();
+
+        fragmentTransaction.replace(R.id.main_frame_layout, frag);
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.commit();
     }

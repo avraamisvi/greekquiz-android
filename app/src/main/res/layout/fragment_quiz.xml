@@ -17,60 +17,69 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1a pessoa singular do presente do indicativo ativo."
-        android:id="@+id/rb_question_1"
-        android:layout_below="@+id/txt_question"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1a pessoa singular do presente do indicativo ativo."
-        android:id="@+id/rb_question_2"
-        android:layout_below="@+id/rb_question_1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1a pessoa singular do presente do indicativo ativo."
-        android:id="@+id/rb_question_3"
-        android:layout_below="@+id/rb_question_2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1a pessoa singular do presente do indicativo ativo."
-        android:id="@+id/rb_question_4"
-        android:layout_below="@+id/rb_question_3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New RadioButton"
-        android:id="@+id/rb_question_5"
-        android:layout_below="@+id/rb_question_4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/rb_question_4"
-        android:layout_alignEnd="@+id/rb_question_4" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Responder"
         android:id="@+id/btn_responder"
-        android:layout_below="@+id/rb_question_5"
+        android:layout_below="@+id/radio_group"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/radio_group"
+        android:layout_below="@+id/txt_question">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1a pessoa singular do presente do indicativo ativo."
+            android:id="@+id/rb_question_1"
+            android:layout_below="@+id/txt_question"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="25dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1a pessoa singular do presente do indicativo ativo."
+            android:id="@+id/rb_question_2"
+            android:layout_below="@+id/rb_question_1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1a pessoa singular do presente do indicativo ativo."
+            android:id="@+id/rb_question_3"
+            android:layout_below="@+id/rb_question_2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1a pessoa singular do presente do indicativo ativo."
+            android:id="@+id/rb_question_4"
+            android:layout_below="@+id/rb_question_3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New RadioButton"
+            android:id="@+id/rb_question_5"
+            android:layout_below="@+id/rb_question_4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/rb_question_4"
+            android:layout_alignEnd="@+id/rb_question_4" />
+    </RadioGroup>
 </RelativeLayout>
