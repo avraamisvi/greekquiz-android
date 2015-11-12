@@ -135,6 +135,8 @@ public class QuizFragment extends Fragment {
             success = pat[2] == question.correct;
         } else if(question4.isChecked()) {
             success = pat[3] == question.correct;
+        } else if(question5.isChecked()) {
+            success = pat[4] == question.correct;
         }
 
         if(success) {

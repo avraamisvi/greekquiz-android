@@ -1,181 +1,510 @@
 {
-  questions: [
-    {
-      title: "Traduza: πληρόω",
-      explanation: "Significado de πληρόω: (eu) encho (a ponto de transbordar), completo, cumpro.",
-      correct: 16,
-      patterns: [
-        [0,16,3,4,5],
-        [3,4,0,16,5],
-        [0,2,16,4,5]
-      ]
-    },
-    {
-      title: "Traduza: ζάω",
-      explanation: "Significado de ζάω: (eu) vivo.",
-      correct: 1,
-      patterns: [
-        [0,2,3,4,5],
-        [3,4,0,2,5],
-        [0,5,3,4,2]
-      ]
-    },
-    {
-      title: "Traduza: λύω",
-      explanation: "Significado de λύω: (eu) desato, destruo, liberto.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: φανερόω",
-      explanation: "Significado de φανερόω: (eu) manifesto, revelo, mostro, dou a conhecer.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: τηρέω",
-      explanation: "Significado de τηρέω: (eu) guardo, observo.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: μένω",
-      explanation: "Significado de μένω: (eu) permaneço, fico.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: μέλλω",
-      explanation: "Significado de μέλλω: (eu) devo + {infinitivo}, estou prestes a + {infinitivo}, vou + {infinitivo}.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: βαπτίζω",
-      explanation: "Significado de βαπτίζω: (eu) batizo, mergulho, imerjo, lavo.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: γεννάω",
-      explanation: "Significado de γεννάω: (eu) gero, dou a luz; nascer (passivo).",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: αἰτέω",
-      explanation: "Significado de αἰτέω: (eu) peço, solicito, requeiro.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: αγαπάω",
-      explanation: "Significado de αγαπάω: (eu) amo.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: ὁμολογέω",
-      explanation: "Significado de ὁμολογέω: (eu) adminto, concordo, reconheço, confesso.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: ποιέω",
-      explanation: "Significado de ποιέω: (eu) faço.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: μαρτυρέω",
-      explanation: "Significado de μαρτυρέω: (eu) testemunho, testifico.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-    {
-      title: "Traduza: μαρτυρέω",
-      explanation: "Significado de μαρτυρέω: (eu) testemunho, testifico.",
-      correct: 2,
-      patterns: [
-        [0,2,5,4,6],
-        [3,4,0,2,5],
-        [5,2,3,6,7]
-      ]
-    },
-  ],
+questions:[
 
-  answers: [
-    {id:0, text:"(eu) vivo."},
-    {id:1, text:"(eu) manifesto, revelo, mostro, dou a conhecer."},
-    {id:2, text:"(eu) guardo, observo."},
-    {id:3, text:"(eu) permaneço, fico."},
-    {id:4, text:"(eu) vou + infinitivo, estou prestes a + infinitivo; devo + infinitivo."},
-    {id:5, text:"(eu) batizo, imerjo, mergulho; lavo."},
-    {id:6, text:"(eu) gero, dou a luz. (nascer no passivo)"},
-    {id:7, text:"(eu) peço, solicito, requeiro."},
-    {id:8, text:"(eu) amo."},
-    {id:9, text:"(eu) admito, concordo, reconheço, confesso."},
-    {id:10, text:"(eu) faço."},
-    {id:11, text:"(eu) testemunho, testifico."},
-    {id:12, text:"(eu) procuro, busco, examino, indago."},
-    {id:13, text:"(eu) vejo, percebo, contemplo."},
-    {id:14, text:"(eu) pergunto, peço, solicito."},
-    {id:15, text:"(eu) falo."},
-    {id:16, text:"(eu) completo, encho (a ponto de transbordar), cumpro."},
-    {id:17, text:"(eu) ."},
-    {id:18, text:"(eu) ."},
-    {id:19, text:"(eu) ."},
-    {id:20, text:"(eu) ."},
-    {id:21, text:"(eu) ."},
-  ],
-
-  randomize: false
+	{
+		title: "Traduza: ἅγω",
+		explanation: "Significado de ἅγω: eu vou; guio; conduzo.",
+		correct: 0,
+		patterns: [[43,56,62,25,0],[3,63,27,62,0],[50,33,50,21,0]]
+	},
+	{
+		title: "Traduza: ἀκούω",
+		explanation: "Significado de ἀκούω: eu ouço, escuto, entendo.",
+		correct: 1,
+		patterns: [[0,10,49,41,1],[54,57,24,0,1],[25,31,5,3,1]]
+	},
+	{
+		title: "Traduza: βάλλω",
+		explanation: "Significado de βάλλω: eu lanço, jogo.",
+		correct: 2,
+		patterns: [[30,21,39,59,2],[47,24,46,0,2],[57,52,51,68,2]]
+	},
+	{
+		title: "Traduza: γινώσκω",
+		explanation: "Significado de γινώσκω: conheço, venho a conhecer, sei; compreendo, reconheço.",
+		correct: 3,
+		patterns: [[30,42,72,16,3],[20,20,35,36,3],[6,68,68,23,3]]
+	},
+	{
+		title: "Traduza: γράφω",
+		explanation: "Significado de γράφω: eu escrevo.",
+		correct: 4,
+		patterns: [[31,45,27,8,4],[70,39,64,63,4],[27,55,46,66,4]]
+	},
+	{
+		title: "Traduza: διδάσκω",
+		explanation: "Significado de διδάσκω: eu ensino.",
+		correct: 5,
+		patterns: [[55,24,31,61,5],[58,27,38,15,5],[5,19,51,50,57]]
+	},
+	{
+		title: "Traduza: εὑρίσκω",
+		explanation: "Significado de εὑρίσκω: eu acho, encontro.",
+		correct: 6,
+		patterns: [[53,30,37,68,6],[17,22,14,51,6],[55,50,1,28,6]]
+	},
+	{
+		title: "Traduza: θέλω",
+		explanation: "Significado de θέλω: eu desejo, quero.",
+		correct: 7,
+		patterns: [[46,38,37,14,7],[28,57,42,6,7],[9,42,48,49,7]]
+	},
+	{
+		title: "Traduza: λέγω",
+		explanation: "Significado de λέγω: eu digo, falo.",
+		correct: 8,
+		patterns: [[41,60,29,47,8],[60,2,19,41,8],[52,20,27,17,8]]
+	},
+	{
+		title: "Traduza: λούω",
+		explanation: "Significado de λούω: eu lavo; voz média: me banho.",
+		correct: 9,
+		patterns: [[51,68,51,22,9],[51,68,31,34,9],[61,47,45,5,9]]
+	},
+	{
+		title: "Traduza: λύω",
+		explanation: "Significado de λύω: eu desato, solto, liberto; destruo.",
+		correct: 10,
+		patterns: [[7,62,38,20,10],[14,9,18,69,10],[6,56,0,62,10]]
+	},
+	{
+		title: "Traduza: σῴζω",
+		explanation: "Significado de σῴζω: eu salvo, liberto, preservo, livro, curo.",
+		correct: 11,
+		patterns: [[23,32,71,29,11],[63,34,39,2,11],[31,14,56,54,11]]
+	},
+	{
+		title: "Traduza: φυλάσσω",
+		explanation: "Significado de φυλάσσω: eu guardo.",
+		correct: 12,
+		patterns: [[5,48,48,41,12],[2,63,12,71,40],[45,45,33,28,12]]
+	},
+	{
+		title: "Traduza: χαίρω",
+		explanation: "Significado de χαίρω: eu me alegro, me regozijo.",
+		correct: 13,
+		patterns: [[71,59,37,27,13],[6,40,2,0,13],[29,44,58,18,13]]
+	},
+	{
+		title: "Traduza: εἰμί",
+		explanation: "Significado de εἰμί: eu sou, estou, existo;acontecer;haver.",
+		correct: 14,
+		patterns: [[70,66,35,69,14],[50,58,23,4,14],[52,25,57,50,14]]
+	},
+	{
+		title: "Traduza: οὐ",
+		explanation: "Significado de οὐ: adverbio de negação (c. o ind.):não.",
+		correct: 15,
+		patterns: [[21,61,6,52,15],[12,14,72,18,15],[12,30,59,30,15]]
+	},
+	{
+		title: "Traduza: οὐκ",
+		explanation: "Significado de οὐκ: adverbio de negação (c. o ind.):não. Usado antes de uma vogal com aspiração branda.",
+		correct: 16,
+		patterns: [[63,12,44,38,16],[69,4,62,11,16],[62,34,28,37,16]]
+	},
+	{
+		title: "Traduza: οὐχ",
+		explanation: "Significado de οὐχ: adverbio de negação (c. o ind.):não. Usado antes de uma vogal com aspiração áspera.",
+		correct: 17,
+		patterns: [[62,66,45,49,17],[28,35,51,5,17],[5,16,7,71,17]]
+	},
+	{
+		title: "Traduza: οὔ",
+		explanation: "Significado de οὔ: adverbio de negação (c. o ind.):não. Quando é a última palavra de uma oração.",
+		correct: 18,
+		patterns: [[38,70,62,14,18],[48,45,56,48,18],[66,49,68,70,18]]
+	},
+	{
+		title: "Traduza: ἁμαρτάνω",
+		explanation: "Significado de ἁμαρτάνω: eu peco.",
+		correct: 19,
+		patterns: [[36,4,28,49,19],[24,66,30,36,19],[15,47,3,13,19]]
+	},
+	{
+		title: "Traduza: ἐγείρω",
+		explanation: "Significado de ἐγείρω: eu levanto, ergo;acordo, desperto;ressuscito.",
+		correct: 20,
+		patterns: [[72,72,5,59,20],[9,71,48,56,20],[11,39,68,72,20]]
+	},
+	{
+		title: "Traduza: ἔχω",
+		explanation: "Significado de ἔχω: eu tenho.",
+		correct: 21,
+		patterns: [[25,11,41,24,21],[17,41,1,31,21],[16,11,47,34,21]]
+	},
+	{
+		title: "Traduza: ἵνα",
+		explanation: "Significado de ἵνα: conjução (usada com o subj.): para que, a fim de que; que, de modo que.",
+		correct: 22,
+		patterns: [[8,14,2,11,22],[16,26,18,8,22],[58,21,67,10,22]]
+	},
+	{
+		title: "Traduza: καί",
+		explanation: "Significado de καί: conjução ilativa: e, a saber, isto é; e assim;como adv.: também, semelhantemente.",
+		correct: 23,
+		patterns: [[15,18,8,71,23],[65,8,49,64,23],[35,12,51,46,23]]
+	},
+	{
+		title: "Traduza: κηρύσσω",
+		explanation: "Significado de κηρύσσω: eu proclamo, prego, anuncio [querigma].",
+		correct: 24,
+		patterns: [[60,39,2,32,24],[32,0,31,10,24],[8,35,9,12,24]]
+	},
+	{
+		title: "Traduza: κρίνω",
+		explanation: "Significado de κρίνω: eu julgo.",
+		correct: 25,
+		patterns: [[35,16,39,38,25],[48,26,24,59,25],[23,41,68,1,25]]
+	},
+	{
+		title: "Traduza: λαμβάνω",
+		explanation: "Significado de λαμβάνω: eu tomo, recebo.",
+		correct: 26,
+		patterns: [[3,13,68,67,26],[52,3,66,39,26],[23,16,57,53,26]]
+	},
+	{
+		title: "Traduza: μή",
+		explanation: "Significado de μή: adv. de negação: não (usado com o subj.); como conj.: a menos que.",
+		correct: 27,
+		patterns: [[65,3,44,21,27],[4,34,1,58,27],[61,9,42,44,27]]
+	},
+	{
+		title: "Traduza: οὖν",
+		explanation: "Significado de οὖν: conj. pospositiva: pois, portanto; então.",
+		correct: 28,
+		patterns: [[56,66,2,48,28],[12,58,64,26,28],[26,15,11,8,28]]
+	},
+	{
+		title: "Traduza: πείθω",
+		explanation: "Significado de πείθω: eu convenço, persuado; na voz passiva: obedeço.",
+		correct: 29,
+		patterns: [[64,44,14,32,29],[60,12,35,43,29],[64,26,20,67,29]]
+	},
+	{
+		title: "Traduza: πέμπω",
+		explanation: "Significado de πέμπω: eu envio.",
+		correct: 30,
+		patterns: [[19,7,8,64,30],[70,65,14,55,30],[43,5,5,0,30]]
+	},
+	{
+		title: "Traduza: πιστεύω",
+		explanation: "Significado de πιστεύω: eu creio; acredito; confio.",
+		correct: 31,
+		patterns: [[62,14,55,16,31],[58,6,56,42,31],[40,9,72,58,31]]
+	},
+	{
+		title: "Traduza: εἰς",
+		explanation: "Significado de εἰς: preposição, usada com o acusativo: para; para dentro; em; até.",
+		correct: 32,
+		patterns: [[57,46,57,8,32],[67,33,67,22,32],[30,57,54,40,32]]
+	},
+	{
+		title: "Traduza: ἐκ/ἐξ",
+		explanation: "Significado de ἐκ/ἐξ: preposição usada só com o ablativo: de; de dentro de; a partir de.",
+		correct: 33,
+		patterns: [[52,39,15,28,33],[36,34,57,28,33],[59,29,72,9,33]]
+	},
+	{
+		title: "Traduza: οὐ μή + aoristo subj. ou futuro ind.",
+		explanation: "Significado de οὐ μή + aoristo subj. ou futuro ind.: negação enfática: com certeza não, jamais, nunca, de modo nenhum.",
+		correct: 34,
+		patterns: [[56,56,66,43,34],[18,61,18,10,34],[28,17,50,59,34]]
+	},
+	{
+		title: "Traduza: ἀγαπάω",
+		explanation: "Significado de ἀγαπάω: eu amo.",
+		correct: 35,
+		patterns: [[21,38,24,39,35],[48,35,40,9,7],[18,25,29,53,35]]
+	},
+	{
+		title: "Traduza: αἰτέω",
+		explanation: "Significado de αἰτέω: eu peço, solicito; requeiro.",
+		correct: 36,
+		patterns: [[48,13,33,35,36],[50,31,10,61,36],[39,0,9,0,36]]
+	},
+	{
+		title: "Traduza: γεννάω",
+		explanation: "Significado de γεννάω: eu gero, dou a luz; voz passiva: nascer.",
+		correct: 37,
+		patterns: [[71,21,28,64,37],[8,66,22,49,37],[20,15,35,4,37]]
+	},
+	{
+		title: "Traduza: ἐρωτάω",
+		explanation: "Significado de ἐρωτάω: eu pergunto; peço, solicito.",
+		correct: 38,
+		patterns: [[2,0,57,68,38],[59,31,18,38,46],[59,55,33,34,38]]
+	},
+	{
+		title: "Traduza: ζάω",
+		explanation: "Significado de ζάω: (eu) vivo.",
+		correct: 39,
+		patterns: [[30,55,55,71,39],[25,53,41,63,39],[61,35,23,56,39]]
+	},
+	{
+		title: "Traduza: ζητέω",
+		explanation: "Significado de ζητέω: eu procuro, busco; examino, indago.",
+		correct: 40,
+		patterns: [[30,9,4,30,40],[1,70,52,25,40],[49,5,50,8,40]]
+	},
+	{
+		title: "Traduza: λαλέω",
+		explanation: "Significado de λαλέω: eu falo.",
+		correct: 41,
+		patterns: [[25,46,40,70,41],[69,20,42,28,41],[44,30,14,19,41]]
+	},
+	{
+		title: "Traduza: μαρτυρέω",
+		explanation: "Significado de μαρτυρέω: eu testifico, testemunho.",
+		correct: 42,
+		patterns: [[9,42,6,54,6],[6,35,24,30,42],[25,1,31,6,42]]
+	},
+	{
+		title: "Traduza: ὁμολογέω",
+		explanation: "Significado de ὁμολογέω: eu admito, concordo; reconheço, confesso.",
+		correct: 43,
+		patterns: [[24,20,65,55,43],[6,18,68,24,43],[32,37,24,46,43]]
+	},
+	{
+		title: "Traduza: ὁράω",
+		explanation: "Significado de ὁράω: eu vejo; percebo; contemplo.",
+		correct: 44,
+		patterns: [[0,54,56,22,44],[65,13,10,60,44],[63,38,69,15,44]]
+	},
+	{
+		title: "Traduza: πληρόω",
+		explanation: "Significado de πληρόω: (eu) encho (a ponto de transbordar), completo, cumpro.",
+		correct: 45,
+		patterns: [[30,58,20,11,45],[5,13,22,60,45],[33,26,42,29,45]]
+	},
+	{
+		title: "Traduza: ποιέω",
+		explanation: "Significado de ποιέω: eu faço.",
+		correct: 46,
+		patterns: [[31,18,57,63,46],[29,34,13,39,46],[33,41,24,50,46]]
+	},
+	{
+		title: "Traduza: τηρέω",
+		explanation: "Significado de τηρέω: eu guardo; observo.",
+		correct: 47,
+		patterns: [[16,8,20,14,47],[49,39,65,18,47],[47,67,32,57,15]]
+	},
+	{
+		title: "Traduza: φανερόω",
+		explanation: "Significado de φανερόω: eu manifesto, revelo, mostro, dou a conhecer.",
+		correct: 48,
+		patterns: [[30,40,18,54,48],[52,45,69,25,48],[46,55,13,10,48]]
+	},
+	{
+		title: "Traduza: βαπτίζω",
+		explanation: "Significado de βαπτίζω: eu batizo; imerjo, mergulho;lavo.",
+		correct: 49,
+		patterns: [[69,45,46,44,49],[62,67,51,25,49],[61,63,48,25,49]]
+	},
+	{
+		title: "Traduza: μέλλω (+ inf.)",
+		explanation: "Significado de μέλλω (+ inf.): eu vou + inf.,estou prestas a + inf.; devo + inf.",
+		correct: 50,
+		patterns: [[11,9,31,15,50],[70,47,65,34,50],[46,52,56,54,50]]
+	},
+	{
+		title: "Traduza: μένω",
+		explanation: "Significado de μένω: eu permaneço, fico.",
+		correct: 51,
+		patterns: [[51,51,31,28,31],[50,37,45,65,51],[21,23,15,51,17]]
+	},
+	{
+		title: "Traduza: ἀδελφός, ὁ",
+		explanation: "Significado de ἀδελφός, ὁ: irmão.",
+		correct: 52,
+		patterns: [[66,39,49,23,52],[10,46,1,36,52],[39,47,7,30,52]]
+	},
+	{
+		title: "Traduza: ἄνθρωπος, ὁ",
+		explanation: "Significado de ἄνθρωπος, ὁ: homem; ser humano, pessoa.",
+		correct: 53,
+		patterns: [[72,13,14,4,53],[0,29,22,47,53],[25,52,3,13,53]]
+	},
+	{
+		title: "Traduza: ἀπόστολος, ὁ",
+		explanation: "Significado de ἀπόστολος, ὁ: apóstolo; enviado, mensageiro.",
+		correct: 54,
+		patterns: [[23,32,55,15,54],[15,47,30,25,54],[8,14,5,52,54]]
+	},
+	{
+		title: "Traduza: ἄρτος, ὁ",
+		explanation: "Significado de ἄρτος, ὁ: pão.",
+		correct: 55,
+		patterns: [[20,53,0,69,55],[26,1,63,2,55],[51,26,17,4,55]]
+	},
+	{
+		title: "Traduza: διδάσκαλος, ὁ",
+		explanation: "Significado de διδάσκαλος, ὁ: mestre, professor.",
+		correct: 56,
+		patterns: [[40,67,13,4,56],[71,44,55,16,56],[69,70,31,39,56]]
+	},
+	{
+		title: "Traduza: δοῦλος, ὁ",
+		explanation: "Significado de δοῦλος, ὁ: escravo; servo.",
+		correct: 57,
+		patterns: [[11,42,60,59,57],[58,15,71,15,57],[49,23,3,47,57]]
+	},
+	{
+		title: "Traduza: ἔρημος, -ου, ἡ",
+		explanation: "Significado de ἔρημος, -ου, ἡ: deserto.",
+		correct: 58,
+		patterns: [[72,42,6,64,58],[59,9,4,20,58],[58,21,37,18,42]]
+	},
+	{
+		title: "Traduza: θεός, ὁ",
+		explanation: "Significado de θεός, ὁ: deus; DEUS.",
+		correct: 59,
+		patterns: [[22,12,3,39,59],[35,14,25,7,59],[19,65,56,68,59]]
+	},
+	{
+		title: "Traduza: ἱμάρτιον, τό",
+		explanation: "Significado de ἱμάρτιον, τό: roupa, veste.",
+		correct: 60,
+		patterns: [[49,37,52,1,60],[67,5,13,51,60],[64,44,10,64,60]]
+	},
+	{
+		title: "Traduza: καιρός, ὁ",
+		explanation: "Significado de καιρός, ὁ: tempo (certo);oportunidade.",
+		correct: 61,
+		patterns: [[67,18,30,50,61],[10,9,30,60,61],[37,48,2,17,61]]
+	},
+	{
+		title: "Traduza: κόσμος, ὁ",
+		explanation: "Significado de κόσμος, ὁ: mundo; universo.",
+		correct: 62,
+		patterns: [[43,63,41,9,62],[72,25,70,28,62],[57,69,66,26,62]]
+	},
+	{
+		title: "Traduza: κύριος, ὁ",
+		explanation: "Significado de κύριος, ὁ: amo, dono de escravos; Senhor.",
+		correct: 63,
+		patterns: [[31,42,2,25,63],[24,1,55,0,63],[28,40,55,30,63]]
+	},
+	{
+		title: "Traduza: λόγος, ὁ",
+		explanation: "Significado de λόγος, ὁ: palavra.",
+		correct: 64,
+		patterns: [[29,21,30,37,64],[71,37,26,64,67],[61,70,56,16,64]]
+	},
+	{
+		title: "Traduza: νόμος, ὁ",
+		explanation: "Significado de νόμος, ὁ: lei.",
+		correct: 65,
+		patterns: [[58,17,1,49,65],[65,10,40,45,22],[39,70,45,17,65]]
+	},
+	{
+		title: "Traduza: ὁ",
+		explanation: "Significado de ὁ:  artigo masculino.",
+		correct: 66,
+		patterns: [[52,24,42,37,66],[62,27,22,40,66],[15,0,12,3,66]]
+	},
+	{
+		title: "Traduza: ἡ",
+		explanation: "Significado de ἡ:  artigo feminino.",
+		correct: 67,
+		patterns: [[60,37,42,16,67],[2,29,17,37,67],[1,12,53,32,67]]
+	},
+	{
+		title: "Traduza: τὁ",
+		explanation: "Significado de τὁ:  artigo neutro.",
+		correct: 68,
+		patterns: [[70,57,27,55,68],[64,6,35,12,68],[48,45,19,33,68]]
+	},
+	{
+		title: "Traduza: ὀφθαλμός, ὁ",
+		explanation: "Significado de ὀφθαλμός, ὁ: olho.",
+		correct: 69,
+		patterns: [[5,45,28,60,69],[47,72,35,40,69],[24,0,37,44,69]]
+	},
+	{
+		title: "Traduza: παιδίον, τό",
+		explanation: "Significado de παιδίον, τό: criança.",
+		correct: 70,
+		patterns: [[46,29,21,1,70],[16,58,31,36,70],[16,5,66,52,70]]
+	},
+	{
+		title: "Traduza: φίλος, ό",
+		explanation: "Significado de φίλος, ό: amigo.",
+		correct: 71,
+		patterns: [[53,35,59,40,71],[38,41,62,44,71],[44,43,2,59,71]]
+	}],
+answers:[
+{id:0, text:"eu vou; guio; conduzo"}
+,{id:1, text:"eu ouço, escuto, entendo"}
+,{id:2, text:"eu lanço, jogo"}
+,{id:3, text:"conheço, venho a conhecer, sei; compreendo, reconheço"}
+,{id:4, text:"eu escrevo"}
+,{id:5, text:"eu ensino"}
+,{id:6, text:"eu acho, encontro"}
+,{id:7, text:"eu desejo, quero"}
+,{id:8, text:"eu digo, falo"}
+,{id:9, text:"eu lavo; voz média: me banho"}
+,{id:10, text:"eu desato, solto, liberto; destruo"}
+,{id:11, text:"eu salvo, liberto, preservo, livro, curo"}
+,{id:12, text:"eu guardo"}
+,{id:13, text:"eu me alegro, me regozijo"}
+,{id:14, text:"eu sou, estou, existo;acontecer;haver"}
+,{id:15, text:"adverbio de negação (c. o ind.):não"}
+,{id:16, text:"adverbio de negação (c. o ind.):não. Usado antes de uma vogal com aspiração branda"}
+,{id:17, text:"adverbio de negação (c. o ind.):não. Usado antes de uma vogal com aspiração áspera"}
+,{id:18, text:"adverbio de negação (c. o ind.):não. Quando é a última palavra de uma oração"}
+,{id:19, text:"eu peco"}
+,{id:20, text:"eu levanto, ergo;acordo, desperto;ressuscito"}
+,{id:21, text:"eu tenho"}
+,{id:22, text:"conjução (usada com o subj.): para que, a fim de que; que, de modo que"}
+,{id:23, text:"conjução ilativa: e, a saber, isto é; e assim;como adv.: também, semelhantemente"}
+,{id:24, text:"eu proclamo, prego, anuncio"}
+,{id:25, text:"eu julgo"}
+,{id:26, text:"eu tomo, recebo"}
+,{id:27, text:"adv. de negação: não (usado com o subj.); como conj.: a menos que"}
+,{id:28, text:"conj. pospositiva: pois, portanto; então"}
+,{id:29, text:"eu convenço, persuado; na voz passiva: obedeço"}
+,{id:30, text:"eu envio"}
+,{id:31, text:"eu creio; acredito; confio"}
+,{id:32, text:"preposição, usada com o acusativo: para; para dentro; em; até"}
+,{id:33, text:"preposição usada só com o ablativo: de; de dentro de; a partir de"}
+,{id:34, text:"negação enfática: com certeza não, jamais, nunca, de modo nenhum"}
+,{id:35, text:"eu amo"}
+,{id:36, text:"eu peço, solicito; requeiro"}
+,{id:37, text:"eu gero, dou a luz; voz passiva: nascer"}
+,{id:38, text:"eu pergunto; peço, solicito"}
+,{id:39, text:"(eu) vivo"}
+,{id:40, text:"eu procuro, busco; examino, indago"}
+,{id:41, text:"eu falo"}
+,{id:42, text:"eu testifico, testemunho"}
+,{id:43, text:"eu admito, concordo; reconheço, confesso"}
+,{id:44, text:"eu vejo; percebo; contemplo"}
+,{id:45, text:"(eu) encho (a ponto de transbordar), completo, cumpro"}
+,{id:46, text:"eu faço"}
+,{id:47, text:"eu guardo; observo"}
+,{id:48, text:"eu manifesto, revelo, mostro, dou a conhecer"}
+,{id:49, text:"eu batizo; imerjo, mergulho;lavo"}
+,{id:50, text:"eu vou + inf.,estou prestas a + inf.; devo + inf"}
+,{id:51, text:"eu permaneço, fico"}
+,{id:52, text:"irmão"}
+,{id:53, text:"homem; ser humano, pessoa"}
+,{id:54, text:"apóstolo; enviado, mensageiro"}
+,{id:55, text:"pão"}
+,{id:56, text:"mestre, professor"}
+,{id:57, text:"escravo; servo"}
+,{id:58, text:"deserto"}
+,{id:59, text:"deus; DEUS"}
+,{id:60, text:"roupa, veste"}
+,{id:61, text:"tempo (certo);oportunidade"}
+,{id:62, text:"mundo; universo"}
+,{id:63, text:"amo, dono de escravos; Senhor"}
+,{id:64, text:"palavra"}
+,{id:65, text:"lei"}
+,{id:66, text:" artigo masculino"}
+,{id:67, text:" artigo feminino"}
+,{id:68, text:" artigo neutro"}
+,{id:69, text:"olho"}
+,{id:70, text:"criança"}
+,{id:71, text:"amigo"}
+],randomize: false
 }
