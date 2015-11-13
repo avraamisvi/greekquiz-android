@@ -25,6 +25,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -44,8 +45,12 @@ public class QuizFragment extends Fragment {
     Question question;
     int questionId = 0;
     int sequence = 0;
+    int answered = 0;
 
     int rights = 0;
+
+    int questionsSequence[][];
+    int questionSequenceSelected = 0;
 
     private RadioButton question1;
     private RadioButton question2;
@@ -108,10 +113,27 @@ public class QuizFragment extends Fragment {
 
             questions.add(q);
         }
+
+        questionsSequence = new int[3][questions.size()];
+
+        Random rand = new Random();
+
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < questions.size(); j++) {
+                questionsSequence[i][j] = rand.nextInt(questions.size());
+            }
+        }
+
+        questionSequenceSelected = rand.nextInt(3);
+    }
+
+    int getQuestionID() {
+        return questionsSequence[questionSequenceSelected][questionId];
     }
 
     public void next() {
         questionId++;
+        answered++;
         if(questionId >= questions.size()) {
             resultFinal = true;
             result = false;
@@ -161,19 +183,24 @@ public class QuizFragment extends Fragment {
             TextView txtResult = (TextView) view.findViewById(R.id.txt_final_result);
             TextView txtRgt = (TextView) view.findViewById(R.id.txt_total_right);
             TextView txtWrg = (TextView) view.findViewById(R.id.txt_total_wrong);
+            ImageView imgType = (ImageView) view.findViewById(R.id.img_result_total);
 
-            float perc = ((float)rights/(float)questions.size())*100;
+            float perc = ((float) rights / (float) answered) * 100;
+            String percStr = new DecimalFormat("###.##").format(perc);
 
             if(perc>=70) {
-                txtResult.setText("Parabéns! Você acertou:" + perc + "%");
+                txtResult.setText("Parabéns! Você acertou:" + percStr + "%");
+                imgType.setImageResource(R.mipmap.right);
             } else if(perc>=50) {
-                txtResult.setText("Parabéns! Você acertou:" + perc + "%");
+                txtResult.setText("Parabéns! Você acertou:" + percStr + "%");
+                imgType.setImageResource(R.mipmap.warning);
             } else {
-                txtResult.setText("Que pena! Você acertou:" + perc + "%");
+                txtResult.setText("Que pena! Você acertou:" + percStr + "%");
+                imgType.setImageResource(R.mipmap.wrong);
             }
 
             txtRgt.setText("Total de acertos:" + rights);
-            txtWrg.setText("Total de erros:" + (questions.size()-rights));
+            txtWrg.setText("Total de erros:" + (answered-rights));
 
             Button btnOK = (Button) view.findViewById(R.id.btn_ok_final);
             btnOK.setOnClickListener(new View.OnClickListener() {
@@ -193,7 +220,6 @@ public class QuizFragment extends Fragment {
             question4 = (RadioButton) view.findViewById(R.id.rb_question_4);
             question5 = (RadioButton) view.findViewById(R.id.rb_question_5);
 
-
             //question1.setSelected(true);
 
             Button btnResp = (Button) view.findViewById(R.id.btn_responder);
@@ -205,8 +231,17 @@ public class QuizFragment extends Fragment {
                 }
             });
 
+            Button btnFinalizar = (Button) view.findViewById(R.id.btn_finalizar_quiz);
+            btnFinalizar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    questionId = questions.size()+1;
+                    verify();
+                }
+            });
+
             try {
-                setQuestion(questions.get(questionId));
+                setQuestion(questions.get(getQuestionID()));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -249,11 +284,17 @@ public class QuizFragment extends Fragment {
 
         textQuestion.setText(question.title);
 
-        question1.setText(answers.getJSONObject(question.patterns[seq][0]).getString("text"));
-        question2.setText(answers.getJSONObject(question.patterns[seq][1]).getString("text"));
-        question3.setText(answers.getJSONObject(question.patterns[seq][2]).getString("text"));
-        question4.setText(answers.getJSONObject(question.patterns[seq][3]).getString("text"));
-        question5.setText(answers.getJSONObject(question.patterns[seq][4]).getString("text"));
+        question5.setText("");
+
+        try {
+            question1.setText(answers.getJSONObject(question.patterns[seq][0]).getString("text"));
+            question2.setText(answers.getJSONObject(question.patterns[seq][1]).getString("text"));
+            question3.setText(answers.getJSONObject(question.patterns[seq][2]).getString("text"));
+            question4.setText(answers.getJSONObject(question.patterns[seq][3]).getString("text"));
+            question5.setText(answers.getJSONObject(question.patterns[seq][4]).getString("text"));
+        } catch (Throwable thr) {
+            thr.printStackTrace();
+        }
 
         sequence = seq;
     }

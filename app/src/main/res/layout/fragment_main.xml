@@ -3,9 +3,16 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:showIn="@layout/activity_main"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivityFragment">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_icon_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:background="@mipmap/greek_icone" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,7 +20,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Greek Quiz"
         android:id="@+id/logo_greek_quiz"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/img_icon_logo"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
         android:textSize="36dp" />
@@ -73,4 +80,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/btn_vocabulario"
         android:layout_alignEnd="@+id/btn_vocabulario" />
+
+
 </RelativeLayout>
