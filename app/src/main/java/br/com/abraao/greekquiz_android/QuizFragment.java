@@ -1,7 +1,9 @@
 package br.com.abraao.greekquiz_android;
 
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -213,13 +216,16 @@ public class QuizFragment extends Fragment {
 
             TextView txtResult = (TextView) view.findViewById(R.id.txt_result);
             TextView txtExp = (TextView) view.findViewById(R.id.txt_explanation);
+            ImageView imgType = (ImageView) view.findViewById(R.id.img_view_type_answer);
 
             if(success) {
                 txtResult.setText("Resposta certa! Parabéns!");
-                txtResult.setBackgroundColor(0xFF88CC88);
+                //txtResult.setBackgroundColor(0xFF88CC88);
+                imgType.setImageResource(R.mipmap.right);
             } else {
                 txtResult.setText("Resposta Errada!");
-                txtResult.setBackgroundColor(0xFFFFAAAA);
+                //txtResult.setBackgroundColor(0xFFFFAAAA);
+                imgType.setImageResource(R.mipmap.wrong);
             }
 
             txtExp.setText(question.explanation);
