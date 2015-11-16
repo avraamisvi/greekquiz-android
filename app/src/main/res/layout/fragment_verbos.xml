@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivityFragment"
+    android:scrollIndicators="left">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Presente do indicativo"
+        android:id="@+id/btn_pres_indicativo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Presente do subjuntivo"
+        android:id="@+id/btn_pres_subjuntivo"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn_pres_indicativo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Futuro do indicativo"
+        android:id="@+id/btn_fut_indicativo"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn_pres_subjuntivo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/btn_pres_subjuntivo"
+        android:layout_alignEnd="@+id/btn_pres_subjuntivo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Imperfeito Indicativo"
+        android:id="@+id/btn_imperfeito_indicativo"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn_fut_indicativo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aoristo"
+        android:id="@+id/btn_aoristo_1"
+        android:layout_below="@+id/btn_mais_perfeito"
+        android:layout_toRightOf="@+id/btn_imperativo"
+        android:layout_toEndOf="@+id/btn_imperativo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Particípio"
+        android:id="@+id/btn_participio"
+        android:layout_below="@+id/btn_mais_perfeito"
+        android:layout_toRightOf="@+id/btn_aoristo_1"
+        android:layout_toEndOf="@+id/btn_aoristo_1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mais Que Perfeito/Futuro Perfeito"
+        android:id="@+id/btn_mais_perfeito"
+        android:layout_below="@+id/btn_imperfeito_indicativo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btn_imperfeito_indicativo"
+        android:layout_alignEnd="@+id/btn_imperfeito_indicativo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Imperativo"
+        android:id="@+id/btn_imperativo"
+        android:layout_below="@+id/btn_mais_perfeito"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perfeito"
+        android:id="@+id/btn_perfeito"
+        android:layout_below="@+id/btn_aoristo_1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Optativo"
+        android:id="@+id/btn_optativo"
+        android:layout_below="@+id/btn_aoristo_1"
+        android:layout_toRightOf="@+id/btn_perfeito"
+        android:layout_toEndOf="@+id/btn_perfeito" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Infinitivo"
+        android:id="@+id/btn_infinitivo"
+        android:layout_below="@+id/btn_aoristo_1"
+        android:layout_toRightOf="@+id/btn_optativo"
+        android:layout_toEndOf="@+id/btn_optativo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conjugação em μι"
+        android:id="@+id/btn_conjug_mi"
+        android:layout_below="@+id/btn_perfeito"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btn_mais_perfeito"
+        android:layout_alignEnd="@+id/btn_mais_perfeito" />
+
+
+</RelativeLayout>

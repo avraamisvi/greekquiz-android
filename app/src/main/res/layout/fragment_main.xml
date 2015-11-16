@@ -4,7 +4,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivityFragment">
+    tools:context=".MainActivityFragment"
+    android:scrollIndicators="left">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -28,7 +29,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Presente do indicativo"
+        android:text="Verbos"
         android:id="@+id/btn_pres_indicativo"
         android:layout_below="@+id/logo_greek_quiz"
         android:layout_marginTop="53dp"
@@ -40,35 +41,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Presente do subjuntivo"
-        android:id="@+id/btn_pres_subjuntivo"
-        android:layout_below="@+id/btn_pres_indicativo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/btn_pres_indicativo"
-        android:layout_alignEnd="@+id/btn_pres_indicativo" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Futuro do indicativo"
-        android:id="@+id/btn_fut_indicativo"
-        android:layout_below="@+id/btn_pres_subjuntivo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/btn_pres_subjuntivo"
-        android:layout_alignEnd="@+id/btn_pres_subjuntivo" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Vocabulário"
         android:id="@+id/btn_vocabulario"
-        android:layout_below="@+id/btn_fut_indicativo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/btn_fut_indicativo"
-        android:layout_alignEnd="@+id/btn_fut_indicativo" />
+        android:layout_below="@+id/btn_pres_indicativo"
+        android:layout_alignRight="@+id/btn_pres_indicativo"
+        android:layout_alignEnd="@+id/btn_pres_indicativo" />
 
     <Button
         android:layout_width="wrap_content"
@@ -80,6 +59,28 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/btn_vocabulario"
         android:layout_alignEnd="@+id/btn_vocabulario" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adjetivos/Numerais/Adverbios"
+        android:id="@+id/btnAdjetivos"
+        android:layout_below="@+id/btn_substantivos"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btn_substantivos"
+        android:layout_alignEnd="@+id/btn_substantivos" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pronomes"
+        android:id="@+id/btnPronomes"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnAdjetivos"
+        android:layout_alignRight="@+id/btnAdjetivos"
+        android:layout_alignEnd="@+id/btnAdjetivos" />
 
 
 </RelativeLayout>

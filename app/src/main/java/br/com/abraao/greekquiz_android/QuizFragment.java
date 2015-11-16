@@ -49,7 +49,7 @@ public class QuizFragment extends Fragment {
 
     int rights = 0;
 
-    int questionsSequence[][];
+    int questionsSequence[];
     int questionSequenceSelected = 0;
 
     private RadioButton question1;
@@ -114,21 +114,21 @@ public class QuizFragment extends Fragment {
             questions.add(q);
         }
 
-        questionsSequence = new int[3][questions.size()];
+        questionsSequence = new int[questions.size()];
 
         Random rand = new Random();
 
-        for(int i = 0; i < 3; i++) {
+//        for(int i = 0; i < 3; i++) {
             for(int j = 0; j < questions.size(); j++) {
-                questionsSequence[i][j] = rand.nextInt(questions.size());
+                questionsSequence[j] = rand.nextInt(questions.size());
             }
-        }
+//        }
 
-        questionSequenceSelected = rand.nextInt(3);
+//        questionSequenceSelected = rand.nextInt(3);
     }
 
     int getQuestionID() {
-        return questionsSequence[questionSequenceSelected][questionId];
+        return questionsSequence[questionId];
     }
 
     public void next() {

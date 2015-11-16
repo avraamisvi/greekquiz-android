@@ -28,8 +28,9 @@
         android:layout_height="wrap_content"
         android:text="Ok"
         android:id="@+id/btn_ok_final"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/txt_total_wrong"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="129dp" />
 
     <TextView
         android:layout_width="wrap_content"
