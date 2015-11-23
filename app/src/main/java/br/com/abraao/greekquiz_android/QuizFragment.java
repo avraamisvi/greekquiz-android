@@ -1,5 +1,6 @@
 package br.com.abraao.greekquiz_android;
 
+import android.app.AlertDialog;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -38,9 +40,15 @@ public class QuizFragment extends Fragment {
     String quiz;
     List<Question> questions;
     JSONArray answers;
+
+    boolean options = true;
     boolean result = false;
     boolean resultFinal = false;
     boolean success = false;
+
+
+    int lastQuestion = 1;
+    int firstQuestion = 0;
 
     Question question;
     int questionId = 0;
@@ -100,7 +108,7 @@ public class QuizFragment extends Fragment {
             q.title = qt.getString("title");
             q.correct = qt.getInt("correct");
             q.explanation = qt.getString("explanation");
-            q.patterns = new int[3][5];
+            q.patterns = new int[5][5];
 
             JSONArray arr = qt.getJSONArray("patterns");
 
@@ -114,7 +122,7 @@ public class QuizFragment extends Fragment {
             questions.add(q);
         }
 
-        questionsSequence = new int[questions.size()];
+        /*questionsSequence = new int[questions.size()];
 
         Random rand = new Random();
 
@@ -122,9 +130,50 @@ public class QuizFragment extends Fragment {
             for(int j = 0; j < questions.size(); j++) {
                 questionsSequence[j] = rand.nextInt(questions.size());
             }
-//        }
+//        }*/
 
 //        questionSequenceSelected = rand.nextInt(3);
+    }
+
+    int generateNum(Random rand, int []nums, int max, int plus) {
+        int ret = 0;
+        boolean done = false;
+
+        INICIO: while(!done) {
+
+            ret = rand.nextInt(max+1)+plus;
+
+            if(!init) {
+                for(int n : nums) {
+                    if(n == ret) {
+                        continue INICIO;
+                    }
+                }
+            }
+
+            init = false;
+            done = true;
+        }
+
+        //System.out.println(ret);
+        return ret;
+    }
+
+    boolean init = true;
+    void generateQuestionSequence() {
+        questionsSequence = new int[(lastQuestion - firstQuestion )+1];
+
+        Random rand = new Random();
+
+        for(int j = 0; j < (lastQuestion - firstQuestion ); j++) {
+            questionsSequence[j] = generateNum(rand, questionsSequence, (lastQuestion - firstQuestion ), firstQuestion);
+            //questionsSequence[j] = rand.nextInt((lastQuestion - firstQuestion )) + firstQuestion;
+        }
+
+        /*for(int j = 0; j <= (lastQuestion - firstQuestion ); j++) {
+            //questionsSequence[j] = generateNum(rand, questionsSequence, (lastQuestion - firstQuestion ), firstQuestion);
+            //questionsSequence[j] = j + firstQuestion;
+        }*/
     }
 
     int getQuestionID() {
@@ -134,7 +183,7 @@ public class QuizFragment extends Fragment {
     public void next() {
         questionId++;
         answered++;
-        if(questionId >= questions.size()) {
+        if(questionId > (lastQuestion - firstQuestion )) {
             resultFinal = true;
             result = false;
             questionId = 0;
@@ -177,8 +226,42 @@ public class QuizFragment extends Fragment {
 
         View view = null;
 
-        if(resultFinal) {
+        if(options) {
+
+            view = inflater.inflate(R.layout.fragment_vocabulario_options, container, false);
+            final NumberPicker nbini = (NumberPicker) view.findViewById(R.id.nbp_question_ini);
+            final NumberPicker nbend = (NumberPicker) view.findViewById(R.id.nbp_question_end);
+
+            nbini.setMinValue(0);
+            nbend.setMinValue(0);
+
+            nbini.setMaxValue(questions.size() - 1);
+            nbend.setMaxValue(questions.size() - 1);
+
+            nbend.setValue(questions.size() - 1);
+
+            Button btnOK = (Button) view.findViewById(R.id.btn_ok_vocabulario_options);
+            btnOK.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    options=false;
+                    questionId = 0;
+                    firstQuestion = nbini.getValue();
+                    lastQuestion = nbend.getValue();
+                    if((lastQuestion - firstQuestion ) >= 10) {
+                        generateQuestionSequence();
+                        refreshView();
+                    } else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setIcon(R.mipmap.warning).setTitle("Atençao!").setMessage("Por favor escolha um mínimo de 10 questões.").create().show();
+                    }
+                }
+            });
+
+        } else if(resultFinal) {
             view = inflater.inflate(R.layout.fragment_result_total, container, false);
+
+            getActivity().setTitle("Greek Quiz - Resultado final.");
 
             TextView txtResult = (TextView) view.findViewById(R.id.txt_final_result);
             TextView txtRgt = (TextView) view.findViewById(R.id.txt_total_right);
@@ -200,7 +283,7 @@ public class QuizFragment extends Fragment {
             }
 
             txtRgt.setText("Total de acertos:" + rights);
-            txtWrg.setText("Total de erros:" + (answered-rights));
+            txtWrg.setText("Total de erros:" + (answered - rights));
 
             Button btnOK = (Button) view.findViewById(R.id.btn_ok_final);
             btnOK.setOnClickListener(new View.OnClickListener() {
@@ -221,6 +304,8 @@ public class QuizFragment extends Fragment {
             question5 = (RadioButton) view.findViewById(R.id.rb_question_5);
 
             //question1.setSelected(true);
+
+            getActivity().setTitle("Greek Quiz - Questão: " + getQuestionID());
 
             Button btnResp = (Button) view.findViewById(R.id.btn_responder);
 
@@ -309,6 +394,9 @@ public class QuizFragment extends Fragment {
     }
 
     private void showMenu() {
+
+        getActivity().setTitle("Greek Quiz");
+
         FragmentManager fragmentManager = this.getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
